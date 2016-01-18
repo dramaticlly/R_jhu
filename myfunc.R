@@ -18,3 +18,5 @@ mc1 <- 1:5
 mc2 <- 6:10
 cbind(mc1,mc2) #OR rbind
 dim(m) <- c(5,2) #x*y = length(m)
+
+
