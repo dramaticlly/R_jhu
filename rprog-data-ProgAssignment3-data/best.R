@@ -1,4 +1,3 @@
-sorted <- sort(interest$outcome,na.last = TRUE)#P2
 # best <- function(state,outcome)
 # return char vector with name of hospital that has the lowest 30-dat morality for specified outcome in state
 # hospital name provided in outcome$Hospital.Name 
@@ -31,7 +30,7 @@ stopifnot(class(colindex)=="numeric")
 	names(df)<-c("hospital","state","outcome")
 
 	# apply the state and outcome != na condition 
-	interest <- df[df$state==mystate&!is.na(df$outcome),]
+	interest <- df[df$state==state&!is.na(df$outcome),]
 	
 	## rate
 	sorted <- sort(interest$outcome,na.last = TRUE)				   # sort by best morality rate
@@ -40,3 +39,11 @@ stopifnot(class(colindex)=="numeric")
 	grpbest <- interest[interest$outcome == sorted[1],]$hospital   # sort by alphabetical order
 	return(sort(grpbest))
 }
+
+# Test case
+print(best("TX", "heart attack"))
+print(best("TX", "heart failure"))
+print(best("MD", "heart attack"))
+print(best("MD", "pneumonia"))
+print(best("BB", "heart attack"))
+print(best("NY", "hert attack"))

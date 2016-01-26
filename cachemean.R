@@ -1,5 +1,5 @@
 # create set/get function
-makeVection <- function(x = numeric()){
+makeVector <- function(x = numeric()){
 	m <- NULL
 
 	set <- function(y){
@@ -39,3 +39,11 @@ cachemean <- function(x, ...){
 	x$setmean(m)
 	return(m)
 }
+
+
+# testcase
+input <- c(1,2,3)
+message("should see cached output");
+v <- makeVector(input)
+cachemean(v)
+cachemean(v)
